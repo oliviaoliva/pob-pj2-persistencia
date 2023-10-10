@@ -227,7 +227,7 @@ public class TelaPaciente {
 								texto = "nao possui atendimentos";
 							else
 								for (Atendimento a : paciente.getAtendimentos()) {
-									texto = texto + a.getData()+ "-" +a.getPaciente().getNome()+ "-" + a.getPlano().getNome()+ "\n";
+									texto = texto + a.getData()+ "-" +a.getPaciente().getNome()+ "-" + a.getMedico().getNome()+ "\n";
 								}
 
 							JOptionPane.showMessageDialog(frame, texto, "alugueis", 1);

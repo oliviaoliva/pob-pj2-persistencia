@@ -250,7 +250,7 @@ public class TelaAtendimento {
 			model.addColumn("id");
 			model.addColumn("data");
 			model.addColumn("Paciente");
-			model.addColumn("Plano");
+			model.addColumn("Medico");
 		
 
 			//adicionar linhas no model

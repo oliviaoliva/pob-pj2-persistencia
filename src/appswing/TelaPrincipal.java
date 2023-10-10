@@ -46,7 +46,7 @@ public class TelaPrincipal {
 	 */
 	public TelaPrincipal() {
 		initialize();
-		frame.setTitle("Locadora - usuario: "+ Fachada.logado.getNome());
+		frame.setTitle(" usuario: "+ Fachada.logado.getNome());
 		frame.setVisible(true);
 	}
 
@@ -87,7 +87,7 @@ public class TelaPrincipal {
 		mnCliente.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				TelaPlano tela = new TelaPlano();
+				TelaMedico tela = new TelaMedico();
 			}
 		});
 		menuBar.add(mnCliente);

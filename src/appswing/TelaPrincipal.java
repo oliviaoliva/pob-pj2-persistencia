@@ -83,7 +83,7 @@ public class TelaPrincipal {
 		});
 		menuBar.add(mnCarro);
 
-		mnCliente = new JMenu("Plano");
+		mnCliente = new JMenu("Medico");
 		mnCliente.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

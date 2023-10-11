@@ -41,7 +41,8 @@ public class TelaMedico {
 	private JTable table;
 	private JScrollPane scrollPane;
 	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField textField2;
+	private JTextField textField3;
 	private JButton button;
 	private JButton button_1;
 	private JButton button_2;
@@ -132,29 +133,53 @@ public class TelaMedico {
 		label_4.setBounds(21, 190, 431, 14);
 		frame.getContentPane().add(label_4);
 
-		label_2 = new JLabel("Nome:");
-		label_2.setHorizontalAlignment(SwingConstants.LEFT);
-		label_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		label_2.setBounds(21, 269, 71, 14);
-		frame.getContentPane().add(label_2);
+		label = new JLabel("Nome:");
+		label.setHorizontalAlignment(SwingConstants.LEFT);
+		label.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		label.setBounds(21, 269, 71, 14);
+		frame.getContentPane().add(label);
 
 		textField = new JTextField();
 		textField.setFont(new Font("Dialog", Font.PLAIN, 12));
 		textField.setColumns(10);
 		textField.setBounds(68, 264, 195, 20);
 		frame.getContentPane().add(textField);
-
+		
+		label_2 = new JLabel("Especialidade:");
+		label_2.setHorizontalAlignment(SwingConstants.LEFT);
+		label_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		label_2.setBounds(21, 269, 71, 14);
+		frame.getContentPane().add(label_2);
+		
+		textField2 = new JTextField();
+		textField2.setFont(new Font("Dialog", Font.PLAIN, 12));
+		textField2.setColumns(10);
+		textField2.setBounds(68, 264, 195, 20);
+		frame.getContentPane().add(textField2);
+		
+		label_3 = new JLabel("Crm:");
+		label_3.setHorizontalAlignment(SwingConstants.LEFT);
+		label_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		label_3.setBounds(21, 269, 71, 14);
+		frame.getContentPane().add(label_3);
+		
+		textField3 = new JTextField();
+		textField3.setFont(new Font("Dialog", Font.PLAIN, 12));
+		textField3.setColumns(10);
+		textField3.setBounds(68, 264, 195, 20);
+		frame.getContentPane().add(textField3);
+		
 		button_1 = new JButton("Criar novo Medico");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					if(textField.getText().isEmpty()) {
+					if(textField.getText().isEmpty() || textField2.getText().isEmpty() || textField3.getText().isEmpty()) {
 						label.setText("campo vazio");
 						return;
 					}
 					String crm = textField.getText();
-					String nome = textField.getText();
-					String especialidade = textField.getText();
+					String nome = textField2.getText();
+					String especialidade = textField3.getText();
 					Fachada.CriarMedico(nome, especialidade, crm);
 					label.setText("medico criado: "+ nome + ", especialidade: " + especialidade + ", crm= " + crm);
 					listagem();
@@ -185,7 +210,7 @@ public class TelaMedico {
 				try{
 					if (table.getSelectedRow() >= 0){	
 						label.setText("nao implementado " );
-						String crm = (String) table.getValueAt( table.getSelectedRow(), 0);
+						String crm = (String) table.getValueAt( table.getSelectedRow(), 2);
 						String nome = (String) table.getValueAt( table.getSelectedRow(), 0);
 						Fachada.excluirMedico(crm, nome);
 						label.setText("cliente apagado" );
@@ -242,10 +267,11 @@ public class TelaMedico {
 
 			//adicionar colunas no model
 			model.addColumn("nome");
-
+			model.addColumn("especialidade");
+			model.addColumn("crm");
 			//adicionar linhas no model
 			for(Medico pl : lista) {
-				model.addRow(new Object[]{pl.getNome()} );
+				model.addRow(new Object[]{pl.getNome(),pl.getEspecialidade(), pl.getCrm()} );
 			}
 
 			//atualizar model no table (visualizacao)

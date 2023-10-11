@@ -1,9 +1,3 @@
-/**********************************
- * IFPB - Curso Superior de Tec. em Sist. para Internet
- * POB - Persistencia de Objetos
- * Prof. Fausto Ayres
- *
- */
 package appswing;
 
 import java.awt.Color;
@@ -26,6 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
@@ -126,7 +121,7 @@ public class TelaMedico {
 
 		label = new JLabel("");		//label de mensagem
 		label.setForeground(Color.BLUE);
-		label.setBounds(21, 321, 688, 14);
+		label.setBounds(12, 355, 688, 14);
 		frame.getContentPane().add(label);
 
 		label_4 = new JLabel("resultados:");
@@ -136,38 +131,14 @@ public class TelaMedico {
 		label = new JLabel("Nome:");
 		label.setHorizontalAlignment(SwingConstants.LEFT);
 		label.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		label.setBounds(21, 269, 71, 14);
+		label.setBounds(12, 269, 89, 14);
 		frame.getContentPane().add(label);
 
 		textField = new JTextField();
 		textField.setFont(new Font("Dialog", Font.PLAIN, 12));
 		textField.setColumns(10);
-		textField.setBounds(68, 264, 195, 20);
+		textField.setBounds(103, 266, 195, 20);
 		frame.getContentPane().add(textField);
-		
-		label_2 = new JLabel("Especialidade:");
-		label_2.setHorizontalAlignment(SwingConstants.LEFT);
-		label_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		label_2.setBounds(21, 269, 71, 14);
-		frame.getContentPane().add(label_2);
-		
-		textField2 = new JTextField();
-		textField2.setFont(new Font("Dialog", Font.PLAIN, 12));
-		textField2.setColumns(10);
-		textField2.setBounds(68, 264, 195, 20);
-		frame.getContentPane().add(textField2);
-		
-		label_3 = new JLabel("Crm:");
-		label_3.setHorizontalAlignment(SwingConstants.LEFT);
-		label_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		label_3.setBounds(21, 269, 71, 14);
-		frame.getContentPane().add(label_3);
-		
-		textField3 = new JTextField();
-		textField3.setFont(new Font("Dialog", Font.PLAIN, 12));
-		textField3.setColumns(10);
-		textField3.setBounds(68, 264, 195, 20);
-		frame.getContentPane().add(textField3);
 		
 		button_1 = new JButton("Criar novo Medico");
 		button_1.addActionListener(new ActionListener() {
@@ -177,9 +148,9 @@ public class TelaMedico {
 						label.setText("campo vazio");
 						return;
 					}
-					String crm = textField.getText();
-					String nome = textField2.getText();
-					String especialidade = textField3.getText();
+					String crm = textField3.getText();
+					String nome = textField.getText();
+					String especialidade = textField2.getText();
 					Fachada.CriarMedico(nome, especialidade, crm);
 					label.setText("medico criado: "+ nome + ", especialidade: " + especialidade + ", crm= " + crm);
 					listagem();
@@ -202,6 +173,18 @@ public class TelaMedico {
 		});
 		button.setBounds(308, 11, 89, 23);
 		frame.getContentPane().add(button);
+		
+		label_2 = new JLabel("Especialidade:");
+		label_2.setHorizontalAlignment(SwingConstants.LEFT);
+		label_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		label_2.setBounds(310, 269, 101, 14);
+		frame.getContentPane().add(label_2);
+
+		textField2 = new JTextField();
+		textField2.setFont(new Font("Dialog", Font.PLAIN, 12));
+		textField2.setColumns(10);
+		textField2.setBounds(405, 266, 108, 20);
+		frame.getContentPane().add(textField2);
 
 
 		button_2 = new JButton("Apagar selecionado");
@@ -228,6 +211,23 @@ public class TelaMedico {
 		button_2.setBounds(281, 213, 171, 23);
 		frame.getContentPane().add(button_2);
 
+		
+		
+		textField3 = new JTextField();
+		textField3.setBounds(113, 297, 130, 19);
+		frame.getContentPane().add(textField3);
+		textField3.setColumns(10);
+
+		
+		JTextPane textPane = new JTextPane();
+		textPane.setBounds(47, 308, 1, 16);
+		frame.getContentPane().add(textPane);
+
+		label_3 = new JLabel("CRM :");
+		label_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		label_3.setBounds(12, 295, 89, 16);
+		frame.getContentPane().add(label_3);
+		
 		button_3 = new JButton("exibir Medicos");
 		button_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		button_3.addActionListener(new ActionListener() {

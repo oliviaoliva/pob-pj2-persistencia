@@ -156,11 +156,11 @@ public class TelaAtendimento {
 						label.setText("campo vazio");
 						return;
 					}
-					String paciente = textField.getText();
+					String cpf = textField.getText();
 					String data = textField_1.getText();
-					String plano= textField_2.getText();
+					String crm= textField_2.getText();
 
-					Fachada.CriarAtendimento(paciente,data,plano);
+					Fachada.CriarAtendimento(data,cpf,crm);
 					label.setText("Atendimento criado");
 					listagem();
 				}

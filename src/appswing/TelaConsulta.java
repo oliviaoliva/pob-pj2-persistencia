@@ -136,7 +136,7 @@ public class TelaConsulta {
 				else
 					switch(index) {
 					case 0: 
-						String modelo = JOptionPane.showInputDialog("digite o CPF:");
+						String modelo = JOptionPane.showInputDialog("digite a especialidade:");
 						List<Atendimento> resultado1 = Fachada.atendimentosComMedicoDeEspecialidade(modelo);
 						listagemAtendimento(resultado1);
 						break;
@@ -159,7 +159,7 @@ public class TelaConsulta {
 
 		comboBox = new JComboBox();
 		comboBox.setToolTipText("selecione a consulta");
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Pacientes com mais de 1 consulta", "atendimentos com médico especialista", "atendimento na data X"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Atendimentos com médico especialista", "Atendimentos na data x", "pacientes com mais de 1 atendimento"}));
 		comboBox.setBounds(21, 10, 513, 22);
 		frame.getContentPane().add(comboBox);
 	}
@@ -173,7 +173,7 @@ public class TelaConsulta {
 			model.addColumn("id");
 			model.addColumn("data");
 			model.addColumn("Paciente");
-			model.addColumn("Plano");
+			model.addColumn("Medico");
 
 			//adicionar linhas no model
 			for(Atendimento a : lista) {

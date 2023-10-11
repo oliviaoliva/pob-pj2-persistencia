@@ -153,7 +153,7 @@ public class TelaPaciente {
 					}
 					String nome = textField.getText();
 					String cpf = textField_1.getText();
-					Fachada.cadastrarPaciente(cpf,nome);
+					Fachada.cadastrarPaciente(nome,cpf);
 					label.setText("paciente criado: "+ nome);
 					listagem();
 				}
